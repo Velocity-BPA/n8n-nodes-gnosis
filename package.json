@@ -1,0 +1,89 @@
+{
+  "name": "n8n-nodes-gnosis",
+  "version": "1.0.0",
+  "description": "A comprehensive n8n community node for Gnosis Chain blockchain providing 11 resources and 50+ operations for accounts, transactions, staking, bridges, tokens, NFTs, and smart contracts. Includes polling triggers for real-time blockchain monitoring.",
+  "license": "BUSL-1.1",
+  "author": {
+    "name": "Velocity BPA",
+    "email": "licensing@velobpa.com",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-gnosis.git"
+  },
+  "homepage": "https://github.com/Velocity-BPA/n8n-nodes-gnosis#readme",
+  "bugs": {
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-gnosis/issues"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "gnosis",
+    "gnosis-chain",
+    "xdai",
+    "blockchain",
+    "ethereum",
+    "evm",
+    "defi",
+    "staking",
+    "bridge",
+    "omnibridge",
+    "gno",
+    "web3",
+    "automation"
+  ],
+  "main": "dist/nodes/GnosisChain/GnosisChain.node.js",
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/GnosisChainApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/GnosisChain/GnosisChain.node.js",
+      "dist/nodes/GnosisChain/GnosisChainTrigger.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc && npm run copy:icons",
+    "copy:icons": "cp -r nodes/GnosisChain/*.svg dist/nodes/GnosisChain/ 2>/dev/null || true",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist/",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "COMMERCIAL_LICENSE.md",
+    "LICENSING_FAQ.md",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.23.0",
+    "prettier": "^3.2.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "js-sha3": "^0.9.3"
+  }
+}

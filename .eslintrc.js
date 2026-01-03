@@ -1,0 +1,40 @@
+module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    project: './tsconfig.json',
+  },
+  plugins: ['@typescript-eslint', 'n8n-nodes-base'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:n8n-nodes-base/community',
+    'prettier',
+  ],
+  env: {
+    node: true,
+    es2020: true,
+  },
+  ignorePatterns: [
+    'dist/',
+    'node_modules/',
+    '*.js',
+    'test/',
+  ],
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+    'n8n-nodes-base/node-class-description-credentials-name-unsuffixed': 'off',
+    'n8n-nodes-base/node-class-description-display-name-unsuffixed-trigger-node': 'off',
+    'n8n-nodes-base/node-param-description-missing-final-period': 'off',
+    'n8n-nodes-base/node-param-description-wrong-for-dynamic-options': 'off',
+    'n8n-nodes-base/node-param-options-type-unsorted-items': 'off',
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'prefer-const': 'error',
+    'no-var': 'error',
+  },
+};
